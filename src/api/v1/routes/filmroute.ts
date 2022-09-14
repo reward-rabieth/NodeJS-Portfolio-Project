@@ -1,4 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import { characterHandler } from '../controllers/characterHandler';
+import { commentHandler } from '../controllers/commentHandler';
 import { filmHandler } from '../controllers/filmHandler';
 
 export async function filmRoutes(
@@ -6,7 +8,9 @@ export async function filmRoutes(
   options: FastifyPluginOptions,
   done: () => void
 ) {
-  app.get('/films/:id/characters', {}, filmHandler);
+  app.get('/films/:id/characters', {}, characterHandler);
+  app.get('/films/:id', {}, filmHandler);
+  app.post('/films/:id/comments', {}, commentHandler);
 
   done();
 }
