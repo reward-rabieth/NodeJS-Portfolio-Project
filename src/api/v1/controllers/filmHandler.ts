@@ -27,4 +27,7 @@ export async function filmHandler(request: any, reply: any) {
     logger.error(e, 'createFilmHandler:error from getting film');
     return reply.code(400).send({ message: 'Error from getting film' });
   }
+
+
+
 }

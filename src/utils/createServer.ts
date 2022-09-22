@@ -5,6 +5,7 @@ export async function createServer() {
 
   //register createRoutes
   app.register(require('../api/v1/routes/filmroute'));
+  
 
   return app;
 }

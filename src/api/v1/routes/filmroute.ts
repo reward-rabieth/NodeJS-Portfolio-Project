@@ -1,7 +1,10 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { characterHandler } from '../controllers/characterHandler';
-import { commentHandler } from '../controllers/commentHandler';
+import { getFilmIdHandler } from '../controllers/commentHandler';
+
 import { filmHandler } from '../controllers/filmHandler';
+
+//register middie
 
 export async function filmRoutes(
   app: FastifyInstance,
@@ -10,7 +13,7 @@ export async function filmRoutes(
 ) {
   app.get('/films/:id/characters', {}, characterHandler);
   app.get('/films/:id', {}, filmHandler);
-  app.post('/films/:id/comments', {}, commentHandler);
+  app.post('/films/:id/comments', {}, getFilmIdHandler);
 
   done();
 }
